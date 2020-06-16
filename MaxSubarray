@@ -1,0 +1,48 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		
+		
+		Scanner in=new Scanner(System.in);
+		int noTestCase=in.nextInt();
+	while(noTestCase>0)
+	{
+		    int n=in.nextInt();
+		    int sum=in.nextInt();
+		    int array[]=new int[n];
+		    for(int k=0;k<n;k++)
+		    array[k]=in.nextInt();
+		    check1(n,sum,array);
+		   
+		    --noTestCase;
+		}
+        
+	}
+	
+	public static void check1(int n,int sum,int[] array)
+	{
+	    int cal=0;
+	    int first=0;
+	    int last=0;
+	    while(cal<sum && last<n)
+	    {
+	        cal=cal+array[last++];
+
+	        
+	        while(cal>sum)
+	        {
+	            cal=cal-array[first++];
+	        }
+            if(cal==sum)
+            {
+                System.out.println((first+1)+" "+last);
+            }
+	    }
+	            if(cal!=sum)
+	    		System.out.println("-1");
+
+	}
+}
